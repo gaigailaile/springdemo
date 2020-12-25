@@ -1,7 +1,7 @@
 import com.gai.entity.Users;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringTest {
+public class SpringIOCTest {
     public static void main(String[] args) {
         //加载spring容器
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("bean.xml");
