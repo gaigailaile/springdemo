@@ -10,13 +10,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
-<!--    <bean id="users" class="com.gai.entity.Users" scope="prototype"/>-->
-<!--    <bean id="userHaveParam" class="com.gai.entity.Users">-->
-<!--        <constructor-arg name="name" value="gaidongxu" />-->
-<!--        <constructor-arg name="age" value="25"/>-->
-<!--    </bean>-->
-<!--    <bean id="factory" class="com.gai.Factory.UserFactory"/>-->
-<!--    <bean id="userFactory" class="com.gai.entity.Users" factory-bean="factory" factory-method="getEntity"/>-->
-<!--    <bean id="userStaticFactory" class="com.gai.Factory.UserFactory" factory-method="getStaticEntity"/>-->
-
+    <context:component-scan base-package="com.gai"></context:component-scan>
+    <!--开启Aop注解-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>

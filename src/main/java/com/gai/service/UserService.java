@@ -24,6 +24,16 @@ public class UserService {
         userDao.add();
     }
 
+    public boolean returnBoolean(){
+        System.out.println("UserService returnBoolean()");
+        return true;
+    }
+
+    public void edit(){
+        System.out.println("UserService edit()");
+        int i = 5/0;
+    }
+
     public void setUserDao(UserDao userDao) {
         System.out.println("UserService的setUserDao方法被调用");
         this.userDao = userDao;
