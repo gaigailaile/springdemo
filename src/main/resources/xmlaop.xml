@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="com.gai"></context:component-scan>
+    <bean id="xmlAop" class="com.gai.aop.XmlAop"></bean>
+    <aop:config>
+        <aop:aspect ref="xmlAop">
+            <aop:pointcut id="pointCut" expression="execution(* com.gai.service.UserService.add())"/>
+            <aop:before method="begin" pointcut-ref="pointCut"></aop:before>
+            <aop:after method="commit" pointcut-ref="pointCut"></aop:after>
+            <aop:after-returning method="afterReturn" pointcut="execution(* com.gai.service.UserService.returnBoolean())" returning="returnVal"></aop:after-returning>
+            <aop:after-throwing method="afterThrowing" pointcut="execution(* com.gai.service.UserService.edit())" throwing="error"></aop:after-throwing>
+            <aop:around method="around" pointcut="execution(* com.gai.service.UserService.setUserDao())"></aop:around>
+        </aop:aspect>
+    </aop:config>
+</beans>
